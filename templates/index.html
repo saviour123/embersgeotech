@@ -28,16 +28,17 @@
 
 		<!-- Header -->
 			<header id="header" class="alt">
-				<h1><strong><a href="index.html">Spatial</a></strong> by Templated</h1>
+				<h1><strong><a href="{{ url_for('index') }}">Spatial</a></strong> by Templated</h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="generic.html">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
+						<li><a href="{{ url_for('index') }}">Home</a></li>
+						<li><a href="{{ url_for('generic') }}">Generic</a></li>
+						<li><a href="{{ url_for('elements') }}">Elements</a></li>
 					</ul>
 				</nav>
 			</header>
 
+			{% block content %} <!-- template inheritance begins from here, ask jinja what is template inheritance -->
 		<!-- Banner -->
 			<section id="banner">
 				<h2>Spatial</h2>
@@ -58,21 +59,6 @@
 								</header>
 							</div>
 							<div class="6u$ 12u$(medium)">
-
-							<div id="map"></div>
-							<script>
-								var map = new L.Map('map', {
-									center: [37.770, -122.41],
-									zoom: 10
-								});
-								
-								L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-									attribution: '© OpenStreetMap contributors'
-								}).addTo(map);
-								
-								L.tileLayer('http://census.sparkgeo.com/{z}/{x}/{y}.png').addTo(map);
-
-							</script>
 
 
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non ea mollitia corporis id, distinctio sunt veritatis officiis dolore reprehenderit deleniti voluptatibus harum magna, doloremque alias quisquam minus, eaque. Feugiat quod, nesciunt! Iste quos ipsam, iusto sit esse.</p>
@@ -98,7 +84,7 @@
 							</div>
 							<div class="6u$ 12u$(xsmall)">
 								<div class="image fit captioned">
-									<img src="images/pic03.jpg" alt="" />
+									<img src="{{ url_for('static', filename='images/pic03.jpg') }}" alt="" />
 									<h3>Illum, maiores tempora cupid?</h3>
 								</div>
 							</div>
@@ -119,17 +105,17 @@
 						</header>
 						<div class="feature-grid">
 							<div class="feature">
-								<div class="image rounded"><img src="images/pic04.jpg" alt="" /></div>
+								<div class="image rounded"><img src="{{ url_for('static', filename='images/pic04.jpg') }}" alt="" /></div>
 								<div class="content">
 									<header>
 										<h4>Lorem ipsum</h4>
 										<p>Lorem ipsum dolor sit</p>
 									</header>
-									<p>my maps goes here</p>
+									
 								</div>
 							</div>
 							<div class="feature">
-								<div class="image rounded"><img src="images/pic05.jpg" alt="" /></div>
+								<div class="image rounded"><img src="{{ url_for('static', filename='images/pic05.jpg') }}" alt="" /></div>
 								<div class="content">
 									<header>
 										<h4>Recusandae nemo</h4>
@@ -139,7 +125,7 @@
 								</div>
 							</div>
 							<div class="feature">
-								<div class="image rounded"><img src="images/pic06.jpg" alt="" /></div>
+								<div class="image rounded"><img src="{{ url_for('static', filename='images/pic06.jpg') }}" alt="" /></div>
 								<div class="content">
 									<header>
 										<h4>Laudantium fugit</h4>
@@ -149,7 +135,7 @@
 								</div>
 							</div>
 							<div class="feature">
-								<div class="image rounded"><img src="images/pic07.jpg" alt="" /></div>
+								<div class="image rounded"><img src="{{ url_for('static', filename='images/pic07.jpg') }}" alt="" /></div>
 								<div class="content">
 									<header>
 										<h4>Porro aliquam</h4>
@@ -175,9 +161,8 @@
 					</div>
 				</section>
 
-<!-- leaflet js scripts goes here -->
 
-
+		{% endblock %}<!-- template inheritance ends -->
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
