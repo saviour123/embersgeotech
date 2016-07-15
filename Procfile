@@ -1,1 +1,1 @@
-web: gunicorn route --log-file -
+web: python route.py
