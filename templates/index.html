@@ -6,7 +6,8 @@
 -->
 <html>
 	<head>
-		<title>Home -Embers Geotech</title>
+		<title>Home{% block title %}-Embers Geotech{% endblock %} </title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
